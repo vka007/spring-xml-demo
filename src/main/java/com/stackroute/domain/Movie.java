@@ -2,7 +2,14 @@ package com.stackroute.domain;
 
 public class Movie {
 
-    Actor actor;
+    Actor actor, actress;
+
+    public Movie(){}
+
+    public Movie(Actor actor, Actor actress) {
+        this.actor = actor;
+        this.actress = actress;
+    }
 /*
     String author;
 
@@ -19,10 +26,15 @@ public class Movie {
         this.actor = actor;
     }
 
+    public void setActress(Actor actress) {
+        this.actress = actress;
+    }
+
     @Override
     public String toString() {
         return "Movie{" +
                 "actor=" + actor +
+                ", actress=" + actress +
                 '}';
     }
 }
