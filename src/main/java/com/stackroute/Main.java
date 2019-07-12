@@ -5,6 +5,7 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
@@ -19,15 +20,19 @@ public class Main
         //XmlBeanFactory xmlBeanFactory = new XmlBeanFactory(new ClassPathResource("beans.xml"));
         //Movie movie1 = xmlBeanFactory.getBean("moviedetails1",Movie.class);
 
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
+        AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
 
-        Movie movie2 = applicationContext.getBean("movie",Movie.class);
+        /*Movie movie2 = applicationContext.getBean("movie",Movie.class);
         //autowire here using byName
         System.out.println(movie2);
 
         //autowire here using Constructor
         Movie movie3 = applicationContext.getBean("movie1",Movie.class);
-        System.out.println(movie3);
+        System.out.println(movie3);*/
+
+        applicationContext.getBean("beanLifecycle");
+
+        applicationContext.registerShutdownHook();
 
 
   //      Movie movie1 = applicationContext.getBean("movie2",Movie.class);
@@ -58,7 +63,6 @@ public class Main
         //get bean by name, not id
         System.out.println(movie5.toString());
         System.out.println(movie5 == movie6);*/
-
 
     }
 }
