@@ -1,5 +1,6 @@
 package com.stackroute;
 
+import com.stackroute.domain.BeanLifecycleDemoBean;
 import com.stackroute.domain.Movie;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
@@ -30,9 +31,13 @@ public class Main
         Movie movie3 = applicationContext.getBean("movie1",Movie.class);
         System.out.println(movie3);*/
 
-        applicationContext.getBean("beanLifecycle");
+        //applicationContext.getBean("beanLifecycle");
 
         applicationContext.registerShutdownHook();
+
+      //  BeanLifecycleDemoBean beanLifecycleDemoBean = (BeanLifecycleDemoBean) applicationContext("beanLifeCycle");
+
+        applicationContext.getBean("beanPostProcessor");
 
 
   //      Movie movie1 = applicationContext.getBean("movie2",Movie.class);
